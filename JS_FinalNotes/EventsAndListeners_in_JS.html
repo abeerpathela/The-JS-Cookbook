@@ -1,0 +1,67 @@
+<!-- 
+Event Target is a entity where a event is recived 
+Phase of Events -> Capturing phase, At-target Phase, Bubbling Phase  
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p class="this-para">Hello Jee</p>
+        <a href="https://www.google.com/" class="this-anchor">Click Me!</a>
+        <div class="allPara">
+            <p>First Para</p>
+            <p>Second Para</p>
+            <p>Third Para</p>
+            <p>Fourth Para</p>
+        </div>
+    </div>
+    <script>
+        let fpara=document.querySelector(".this-para");
+        function changeText(event){
+            fpara.innerText="Changed Successfully";
+            console.log(event);
+            fpara.style.color="green";
+        }
+        fpara.addEventListener('click',changeText);
+
+        // Default Action 
+
+        let fanchor=document.querySelector(".this-anchor");
+        function anchorKaHandler(){
+            event.preventDefault();
+            fanchor.innerText="Click ho gya hai!";
+        }
+        fanchor.addEventListener('click',anchorKaHandler);
+
+        // EXCERCISE -> notify on clicking the para
+        let MainDivOfAllPara=document.querySelector(".allPara");
+        let allPara=MainDivOfAllPara.getElementsByTagName('p');
+        
+        function ClickAlertPara(event){
+            console.log(`you have clicked ${event.target.innerText}`);
+        }
+
+        // for(let i=0; i<allPara.length; i++){
+        //     let para=allPara[i];
+        //     para.addEventListener('click',ClickAlertPara);
+        // }
+        
+        // The for loop runs only once, when your JavaScript code first loads. 
+        // During that time, it attaches event listeners (addEventListener) to each <p> tag.
+        //After that, the loop is done — it never runs again.
+        //But the event listeners stay attached to those <p> elements in memory. 
+        // So even if you click a paragraph after 10 minutes, the event listener is still there, waiting for that event to happen.
+
+        // (More Optimal Way)
+
+        MainDivOfAllPara.addEventListener('click',ClickAlertPara);
+
+    </script>
+</body>
+</html>

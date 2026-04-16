@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: dodgerblue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1" onclick="console.log('Hello')">Click me!</button>
+    <button id="q">q</button>
+    <div class="box"></div>
+    <script>
+        let a=0;
+        let button=document.querySelector("#btn1");
+        let button_2=document.querySelector("#q");
+        let box=document.querySelector("div");
+        button.onclick=() => {
+            console.log("Button was clicked");
+            a++;
+            console.log(a);
+        }
+        box.onmouseover=()=>{
+            console.log("You are inside the box!");
+        }
+        button_2.ondblclick=()=>{
+            console.log("You double clicked");
+        }
+    </script>
+</body>
+</html>

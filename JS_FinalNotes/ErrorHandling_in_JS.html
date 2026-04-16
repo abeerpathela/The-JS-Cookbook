@@ -1,0 +1,48 @@
+<!-- 
+What is Error? 
+Error is just a event which impacts or disrupts the normal flow of execution of code 
+Types of Error?
+1) Compile Time Error ->  the error of the code detected before the execution of the code " Code jab parse ho raha tha machine code mei tab hei error detect ho jata hai "
+2) Run Time Error -> the error of the code detected while the code was executing 
+Example of each type of error 
+1) Compile Time Error -> Syntax Error 
+2) Run Time Error -> Reference Error  
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // try{
+        //     console.log("try block start's here");
+        //     console.log(x);
+        //     console.log("try block end's here");
+        // }
+        // catch(e){
+        //     console.log("Inside the catch block");
+        //     console.log(`This is the error we got -> ${e}`);
+        // }
+        // finally{
+        //     console.log("This is finally block which will run everytime the code executes");
+        // }
+
+        // MAKING OUR OWN CUSTOM ERRORS 
+
+        // try{
+        //     console.log(x);
+        // }
+        // catch(e){
+        //     throw new Error("IS VARIABLE KO PEHLE DECLARE KARO FER YEH TRY KARO");
+        // }
+
+        let errorCode=100;
+        if(errorCode===100){
+            throw new Error("Invalid JSON");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: yellow;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>List</h1>
+        <ul>
+            <li>Item-1</li>
+            <li>Item-2</li>
+            <li>Item-3</li>
+        </ul>
+    </div>
+    <div class="para">I am another div</div>
+    <script>
+        // let divBox=document.querySelector(".box");
+        // let newBtn=document.createElement("button");
+        // newBtn.innerText="Click Me!";
+        // newBtn.style.backgroundColor="blue";
+        // newBtn.style.color="white";
+        // insert elements
+        // // 1) append
+        // divBox.append(newBtn);
+        // // 2) prepend
+        // divBox.prepend(newBtn);
+        // 3) before
+        // divBox.before(newBtn);
+        // // 4) after
+        // divBox.after(newBtn);
+
+        // delete elements
+        let para=document.querySelector(".para");
+        para.remove();   
+    </script>
+</body>
+</html>

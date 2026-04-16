@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">this is a blue box</div>
+    <script>
+
+        // two attribute properties - 1) .getAttribute("attr");  2) .setAttribute("attr","new_value_for_attribute");
+        let div=document.querySelector("div");
+        // get attribute helps us to get the name of the attribute
+        let a=div.getAttribute("class");
+        console.log(a);
+        // set attribute helps us to set the value of the  attribute
+        // div.setAttribute("class","newclass");
+
+        // special attribute for style in next file
+        
+    </script>
+</body>
+</html>

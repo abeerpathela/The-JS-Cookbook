@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">Click Me!</button>
+    <script>
+        let btn=document.querySelector("#btn1");
+        btn.onclick=(e)=>{
+            console.log(e);
+            console.log(e.type);
+            console.log(e.target);
+            console.log(e.clientX,e.clientY);
+        }
+    </script>
+</body>
+</html>

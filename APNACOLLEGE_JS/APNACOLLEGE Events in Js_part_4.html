@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">Click me!</button>
+    <script>
+        // event listners
+
+        // addEventListener("event","callback");
+        let button=document.querySelector("#btn1");
+        button.addEventListener("click",()=>{
+            console.log("Button was clicked");
+        });
+
+        // removeEventListener("event","callback");
+        const handler_3=()=>{
+            console.log("handler3");
+        }
+        button.addEventListener("click",handler_3);
+        button.removeEventListener("click",handler_3);
+    </script>
+</body>
+</html>

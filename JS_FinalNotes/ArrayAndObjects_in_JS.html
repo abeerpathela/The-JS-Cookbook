@@ -1,0 +1,184 @@
+<!-- 
+    Array is a reference type of data
+    more examples which comes under reference type -> Object,Array,Function
+    Array is collection of elements
+    Object is just a collection of key value pairs 
+    Object can be accesed by two methods first -> obj.key   second -> obj["key"]
+    Array is a type of object
+    Array can be accessed by index arr[index] arr[0]
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // OBJECTS
+
+        let obj={
+            name:"Abeer",
+            "full name":"Abeer Pathela",
+            age:18,
+            weight:89,
+            height:"5ft 8in",
+            greet: (fullName)=>{
+                console.log(`Hello,${fullName}`);
+            },
+            id:1014
+        }
+        obj.greet(obj["full name"]);
+        console.log(obj.age);
+        console.log(typeof(obj));
+
+        // Loop of Objects
+            // for in 
+        for(let key in obj){
+            console.log(`${key} ${obj[key]}`);      // in these type of cases the dot notation to access the element does not work 
+        }
+
+        // ARRAYS
+
+        let arr=[1,2,3,4,5];
+        let arr_2=new Array(1,2,3,4,5,6,7,8,9,10);
+        console.log(arr);
+        console.log(arr_2);
+        console.log(typeof(arr));
+
+        // Built in Methods of Array
+        arr.push(6);        // push
+        console.log(arr);
+        arr.pop();          // pop
+        console.log(arr);
+        arr.shift();        // shift       remove the first element of array 
+        console.log(arr);
+        arr.unshift(10);    // unshift      add the element at the first of the array 
+        console.log(arr);
+
+        // slice 
+        // slice(startIndex,endIndex)  // here the end index element will not be included in this part 
+        console.log(arr.slice(2,3));
+
+        // splice
+        // splice(startIndex,deleteCount,item1,item2,...itemN);
+        arr.splice(2,2);
+        console.log(arr);
+        arr.splice(2,0,3,4);
+        console.log(arr);
+
+        //map
+        let arr_3=new Array(10,20,30);
+        const multiplyBy10=(element,index)=>{
+            console.log(index);
+            return element*10;
+        }
+        let newArray=arr_3.map(multiplyBy10);
+        console.log(newArray);
+
+        // filter 
+        let arr_4=new Array(1,2,3,4,5,6,7,8,9,10);
+        const getEven=(element)=>element%2===0;
+        const getOdd=(element)=>element%2!==0;
+        let newArray_2=arr_4.filter(getEven);
+        let newArray_3=arr_4.filter(getOdd);
+        console.log(newArray_2);
+        console.log(newArray_3);
+
+        let arr_5=new Array(10,11,20,21,30,31);
+        const getMultipleOf10=(element)=>{
+        if(element%10===0){
+            return true;
+        }
+        else{
+            return false;
+        }
+        };
+        const notAMultipleOf10=(element)=>{
+            if(element%2!==0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        };
+        let newArray_4=arr_5.filter(getMultipleOf10);
+        let newArray_5=arr_5.filter(notAMultipleOf10);
+        console.log(newArray_4);
+        console.log(newArray_5);
+
+        // Reduce 
+        // remember accumulator,current
+        let arr_6=new Array(1,2,3);
+        let newArray_6=arr_6.reduce(
+            (accumulator,current)=>{
+                return accumulator+current;
+            },0
+        )
+
+        // sort 
+        let arr_7=new Array(9,7,2,1,4,5,44,999,11);
+        arr_7.sort((a,b)=>a-b);
+        console.log(arr_7);
+        let arr_8=[...arr_7];
+        arr_8.sort((a,b)=>b-a);
+        console.log(arr_8);
+
+        // indexof 
+        console.log(arr_8.indexOf(999));
+
+        // find 
+        // The find() method in JavaScript is used to search an array 
+        // and return the first element that matches a condition. If no element matches, it returns undefined.
+        let arr_9=new Array(11,13,12);
+        let firstEvenElementOfTheArray=arr_9.find((num)=>num%2==0);
+        console.log(firstEvenElementOfTheArray);
+        
+        // LOOP OF THE ARRAY 
+            
+            // forEach
+        let arr_10=new Array(10,20,30);
+        let sumOfValue=0;
+        let sumOfIndex=0;
+        arr_10.forEach((value,index)=>{
+            sumOfValue=sumOfValue + value;
+            sumOfIndex=sumOfIndex + index;
+        })
+        console.log(sumOfValue);
+        console.log(sumOfIndex);
+
+            // forOf
+        // forof can be applied to strings as well as arrays
+        let arr_11=new Array(10,20,30,40);
+        for(let element of arr_11){
+            console.log(element);
+        }
+
+        let string_1="qwertyuiop";
+        for(let element of string_1){
+            console.log(element);
+        }
+
+        // MAKING OF CUSTOM ARRAY FUNCTIONS 
+        let arr_12=[10,20,30,40,50];
+
+        function getSum(array){
+            let length=array.length;
+            let sum=0;
+            for(let value of array){
+                sum=sum+value;
+            }
+            return sum;
+        }
+        console.log(getSum(arr_12));
+
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World!!</h1>
+    <script>
+        let person={
+        fName:"Abeer",
+        lName:"Pathela",
+        get fullname(){
+            return `${this.fName} ${this.lName}`;
+        },
+        set fullname(value){
+            if(typeof value !== typeof 'string'){
+                throw new Error("You have not sent the value as string!");
+            }
+            let parts=value.split(' ');
+            this.fName=parts[0];
+            this.lName=parts[1];
+        }
+        };
+        try{
+            person.fullname= true ;
+            console.log(person.fullname);
+        }
+        catch(e){
+            alert(e);
+        }
+    </script>
+</body>
+</html>

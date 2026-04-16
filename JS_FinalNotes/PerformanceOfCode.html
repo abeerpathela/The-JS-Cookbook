@@ -1,0 +1,66 @@
+ <!-- Things learnt -> document fragment , performance.now() -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main"></div>
+    <script>
+        // Code 1
+        const performanceBefore=performance.now();
+
+        const main=document.querySelector('.main');
+        for(let i=0; i<30; i++){
+            let para=document.createElement('p');
+            para.innerText=`This is para ${i+1}`;
+            main.appendChild(para);
+        }
+
+        const performanceAfter=performance.now();
+
+        const totalPerformance=performanceAfter-performanceBefore;
+
+        console.log(`Total performance Of Code-1: ${totalPerformance}`);
+
+        // Code 2
+        const performanceBefore_2=performance.now();
+
+        const myDiv=document.createElement('div');
+        for(let i=0; i<30; i++){
+            let para=document.createElement('p');
+            para.innerText=`This is para ${i+1}`;
+            myDiv.appendChild(para);
+        }
+        main.appendChild(myDiv);
+
+        const performanceAfter_2=performance.now();
+
+        const totalPerformance_2=performanceAfter_2-performanceBefore_2;
+
+         console.log(`Total performance Of Code-2: ${totalPerformance_2}`);
+
+         // Code 3
+
+        const performanceBefore_3=performance.now();
+
+         let fragment=document.createDocumentFragment();
+
+         for(let i=0; i<100; i++){
+            let para=document.createElement('p');
+            para.textContent=`This is para ${i+1}`;
+            fragment.appendChild(para);
+         }
+         document.body.appendChild(fragment);
+
+         const performanceAfter_3=performance.now();
+
+         const totalPerformance_3=performanceAfter_3-performanceBefore_3;
+
+         console.log(`Total performance Of Code-3: ${totalPerformance_3}`);
+    </script>
+</body>
+</html>

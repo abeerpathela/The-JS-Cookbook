@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>AJAX Trial</h1>
+    </div>
+    <div>
+        <button id="fetchButton">Fetch button</button>
+        <button id="populateButton">populate button</button>
+        <!-- <button>Link</button> -->
+    </div>
+    <div>
+        <h1>Data fetched here -:</h1>
+        <div id="dataFetchContainer">
+
+        </div>
+    </div>
+    <script>
+
+        let fetchButton=document.querySelector("#fetchButton");
+        fetchButton.addEventListener('click',fetchButtonHandler);
+        let populateButton=document.querySelector("#populateButton");
+        populateButton.addEventListener('click',populateButtonHandler);
+        let dataContainer=document.querySelector("#dataFetchContainer");
+
+        function fetchButtonHandler(){
+            const xhr=new XMLHttpRequest();
+
+            // open the object 
+            // xhr.open('GET','https://jsonplaceholder.typicode.com/todos/1',true);    // GET request with XML
+            xhr.open('POST','https://jsonplaceholder.typicode.com/posts',true);     // POST request with xml 
+            xhr.setRequestHeader('Content-type','application/json');   // this is to send the data 
+
+            // what to do on processing    (OPTIONAL STEP)
+            xhr.onprogress=function(){
+                console.log("processing data....");
+            }
+
+            xhr.onreadystatechange=function(){
+                console.log('ready state is ',this.readyState);
+            }
+
+             // what to do when the data is loaded 
+
+            xhr.onload=function(){
+                if(this.status>=200 && this.status<=300){
+                    console.log(this.responseText);
+                }
+                else{
+                    console.log("Error occured while fetching data");
+                }
+            }
+
+            // sending the request
+            params= `{"userId":"test","id":"123","title":"hello testing the api","body":"Kya chal raha hai? "}`;
+            xhr.send(params);
+        }
+        
+        function populateButtonHandler(){
+            console.log("You have clicked populate button!!");
+
+            const xhr=new XMLHttpRequest();
+            
+            xhr.open('GET','https://jsonplaceholder.typicode.com/todos/1',true);
+
+            xhr.onprogress=function(){
+                console.log("Processing data from server!!");
+            }
+
+            xhr.onload=function(){
+                if(this.status>=200 && this.status<300){
+                    let obj=JSON.parse(this.responseText);
+                    let table=document.createElement('table');
+                    table.style.border="2px solid black";
+
+                    let tableHeadings=["userId","id","title","completed"];
+                    let headingRow=document.createElement('tr');
+                    tableHeadings.forEach((eachValue)=>{
+                        let cell=document.createElement('th');
+                        cell.innerText=`${eachValue}`;
+                        cell.style.border="1px solid black";
+                        headingRow.appendChild(cell);
+                    })
+                    table.appendChild(headingRow);
+                    let data=[obj.userId,obj.id,obj.title,obj.completed];
+                    let dataRow1=document.createElement('tr');
+                    data.forEach((eachValue)=>{
+                        let cell=document.createElement('td');
+                        cell.innerText=`${eachValue}`;
+                        cell.style.border="1px solid black";
+                        dataRow1.appendChild(cell);
+                    })
+                    table.appendChild(dataRow1);
+
+                    dataContainer.appendChild(table);
+                }
+                else{
+                    console.log("Error in fetching data from the server!!");
+                }
+            }
+
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

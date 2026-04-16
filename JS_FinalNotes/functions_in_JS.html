@@ -1,0 +1,71 @@
+<!-- function is just a block of code which perform a specific task  
+    
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //  function defination 
+        function sayMyName(){
+            console.log("Abeer Pathela");
+        }
+        // function call
+        sayMyName();
+
+        // basic functions
+        function countTo10(){
+            for(let i=0; i<=10;i++){
+                console.log(i);
+            }
+        }
+        countTo10();
+        function countUpto(num){
+            for(let i=0; i<=num; i++){
+                console.log(i);
+            }
+        }
+        countUpto(20);
+        function getAverageOfTwoNumbers(num1,num2){
+            let avg=(num1+num2)/2;
+            console.log(avg);
+        }
+        getAverageOfTwoNumbers(3,4);
+
+        // return function -> these are the functions which return some values 
+        function getSumOfThreeNumbers(num1,num2,num3){
+            let sum=num1+num2+num3;
+            return sum;
+        }
+
+        let result=getSumOfThreeNumbers(1,2,3);
+        console.log(result);
+
+        function getMyName(firstName,lastName){
+            let fullName=firstName+" "+lastName;
+            return fullName;
+            // After return keyWord any statement written are unreachable statements 
+        }
+        let fullName=getMyName("Abeer","Pathela");
+        console.log(fullName);
+
+        const fullName2=function (firstName,lastName){        // Another way of function declaration 
+            return firstName+" "+lastName;
+        }
+        console.log(fullName2("Abeera","Pathela"));
+
+        // ARROW functions
+        let fullName3= (firstName,lastName)=>{
+            return firstName+" "+lastName;
+        }
+        console.log(fullName3("Abeer","Pathela"));
+        
+    </script>    
+</body>
+</html>

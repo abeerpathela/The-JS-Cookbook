@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body class="bbody">
+    <div> ABCD</div>
+    <h1 id="heading-1">Dom demo</h1>
+    <h4 class="heading-4">Topic-1</h4>
+    <p class="para">This is a paragraph</p>
+    <button>This is a button</button>
+  </body>
+  <script>
+    let b=document.querySelector(".bbody");
+    let h1=document.getElementById("heading-1");
+    console.log(h1);
+    let h4=document.getElementsByClassName("heading-4");
+    console.log(h4);
+    let pp=document.querySelector("p");
+    console.log(pp);  
+    let h1_2=document.querySelector("#heading-1");
+    console.log(h1_2);
+    let h4_2=document.querySelector(".heading-4");
+    console.log(h4_2);   
+    console.log(h1_2.tagName);
+    console.log(h1_2.innerText);
+    console.log(h1_2.innerHTML);
+    console.log(h1_2.textContent);
+    console.log(b.children);
+    console.log(b.firstChild);
+    console.log(b.lastChild);
+    let a=pp.getAttribute("class");
+    console.log(a);
+  </script>
+</html>

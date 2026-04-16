@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>This is a para</p>
+    <button id="mode">Click Me!</button>
+    <script>
+        let a=document.querySelector("body");
+        let b=document.querySelector("#mode");
+        b.addEventListener("click",()=>{
+            a.style.backgroundColor="white";
+            a.style.color="black";
+        });
+        b.addEventListener("dblclick",()=>{
+            a.style.backgroundColor="black";
+            a.style.color="white";
+        })
+    </script>
+</body>
+</html>

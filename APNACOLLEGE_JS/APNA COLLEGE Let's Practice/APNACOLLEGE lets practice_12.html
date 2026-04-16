@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let b=document.querySelector("body");
+        let para=document.createElement("p");
+        para.innerText="i am a para";
+        para.style.color="red";
+        para.setAttribute("class","para");
+        let d=document.createElement("div");
+        d.setAttribute("class","finalClass");
+        b.append(d);
+        d.append(para);
+    </script>
+</body>
+</html>

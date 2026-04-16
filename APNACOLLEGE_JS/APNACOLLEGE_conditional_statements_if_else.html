@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body></body>
+<script>
+    // basic example for if statements
+    let age=25;
+    if(age>18){
+        console.log("You can vote.");
+    }else{
+        console.log("You can't vote");
+    }
+
+    // let mode="light";
+    // let color;
+    // if(mode==="dark"){
+    //     color="black";
+    // }
+    // if(mode==="light"){
+    //     color="white";
+    // }
+    // console.log(color);
+
+    // finding odd or even
+
+    let num=10;
+    if(num%2===0){
+        console.log("Even");
+    }
+    if(num===0){
+        console.log("Zero");
+    }
+    if(num%2!==0){
+        console.log("Odd");
+    }
+
+    // using else if statement
+    let mode="dark";
+    let color;
+    if(mode==="dark"){
+        color="black";
+    }
+    else if(mode==="blue"){
+        color="blue";
+    }
+    else if(mode==="red"){
+        color="red";
+    }
+    else{
+        color="white";
+    }
+    console.log(color);
+
+    // Ternary Operators
+    let aage=90;
+    aage>=18 ? console.log("You Can Vote") : console.log("You Can't Vote");
+</script>  
+</html>

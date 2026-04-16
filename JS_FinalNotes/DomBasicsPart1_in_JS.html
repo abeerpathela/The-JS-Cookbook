@@ -1,0 +1,94 @@
+<!-- 
+Window object is the global object 
+Window object contains the global variables and globals methods of JS in it
+Window object contains three models in it DOM,BOM(Browser Object Model),JS Core  
+DOM stands for Document Object Model 
+whatever HTML code we write is converted to a JS object named as document 
+the tag is converted to a token by tokenizer then that token gets converted to node then various node together helps to form DOM (a tree like structure)
+
+Diffrence between textContent and innerText -:
+We observe that the text content shows all the text available in the code 
+but the innerText shows only the text shown in the UI of that web Page 
+
+appendChild always add the element in the last only but if we want to add the element in between then we use insertAdjacentHTML
+In insertAdjacentHTML we have certain position swhich we have to give to insert the html where - i) beforeBegin
+                                                                                                 ii) afterBegin
+                                                                                                 iii) beforeEnd
+                                                                                                 iv) afterEnd
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="boody">
+    <p id="fpara" class="textMatter">First Paragraph</p>
+    <h1 class="fhead textMatter">First Heading</h1>
+    <div id="fdiv">
+        <p>
+            This is my First
+            <span>
+                Text
+            </span>
+        </p>
+        <p style="display: none;">
+            This is my second
+            <span>
+                Text
+            </span>
+        </p>
+    </div> 
+    <div class="newDiv" style="background-color:yellow; border: 2px solid black;" >
+        <p>Hello Jee</p>
+        <div class="myDiv" style="background-color: bisque;">
+            <p id="firstChild">First</p>
+            <h1>Second</h1>
+            <p>Third</p>
+        </div>
+    </div>
+    <script>
+        // window.open()  // it is to open a new window 
+        // window.close()  // it is to close the current window 
+        
+        // Accessing Elements -> getElementById getElementsByClassName getElementsByTagName querySelector querySelectorAll 
+        let fpara=document.querySelector("#fpara");
+        let fhead=document.querySelector(".fhead");
+        let textMatter=document.getElementsByClassName("textMatter");
+        let AllPara=document.getElementsByTagName('p');
+        console.log(fhead);
+        console.log(fpara);
+        console.log(textMatter);
+        console.log(AllPara);
+
+        // Updating Elements -> innerHTML outerHTML textContent innerText  
+        // let body=document.querySelector(".boody");
+        // body.innerHTML=`<p>Sab Replace ho Gaya Hai</p>`;
+        fpara.outerHTML=`<h2>This is a heading now</h2>`;
+        let fdiv=document.querySelector("#fdiv");
+        console.log(fdiv);
+        console.log(fdiv.textContent);
+        console.log(fdiv.innerText);
+
+        // Add Element -> createElement appendChild insertAdjacentHTML
+        let fhead_2=document.createElement('h1');
+        fhead_2.innerText="This is new heading";
+        fdiv.appendChild(fhead_2);
+
+        let myDiv=document.querySelector(".myDiv");
+        let newElement=document.createElement('span');
+        newElement.textContent="This is my new element";
+        // myDiv.insertAdjacentElement('beforeBegin',newElement);
+        // myDiv.insertAdjacentElement('afterBegin',newElement);
+        // myDiv.insertAdjacentElement('beforeEnd',newElement);
+        myDiv.insertAdjacentElement('afterEnd',newElement);
+
+        // Removal of Elements -> removeChild
+        myDiv.removeChild(document.querySelector("#firstChild"));
+         
+
+    </script>
+</body>
+</html>
